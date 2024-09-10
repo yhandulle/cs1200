@@ -57,6 +57,10 @@ def calculate_sizes(v):
 def FindDescendantOfSize(t, v):
     if v.size >=t and v.size <= (2*t):
         return v
+    if v.left is None:
+        return FindDescendantOfSize(t, v.right)
+     if v.right is None:
+        return FindDescendantOfSize(t, v.left)    
     if v.left.size > v.right.size:
          return FindDescendantOfSize(t, v.left)
     return FindDescendantOfSize(t, v.right)  
